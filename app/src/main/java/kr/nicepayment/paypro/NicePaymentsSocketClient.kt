@@ -22,8 +22,7 @@ class NicePaymentsSocketClient (
         }
     }
 
-    fun sendProtocolData(builder: ProtocolDataBuilder) {
-        val dataPacket = builder.build()
+    fun sendProtocolData(dataPacket: ByteArray) {
         try {
             outputStream.write(dataPacket)
             outputStream.flush()

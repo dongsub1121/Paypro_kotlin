@@ -1,36 +1,42 @@
 package kr.nicepayment.paypro
 
-class ProtocolDataBuilder(
-    private var merchant: String,
-    var taxRate: Double,
-    private var amount: Number,
-    private var payMethod: PaymentMethod,
-    private var status: PaymentStatus,
-    private var state: ProtocolState,
-    private var barcodeType: BarcodeType,
-    private var barcode: String
-) {
+import kr.nicepayment.paypro.ProtocolSetDelegate.Pad.*
 
+
+class ProtocolDataBuilder {
     private var stx: Byte = 0x02
-    private var totalLen: String by ProtocolSetDelegate(4, ProtocolSetDelegate.Pad.NUMBER)
+    private var totalLen: String by ProtocolSetDelegate(4, NUMBER)
     private var identity: Int = 0x1212
-    private var specVersion: String by ProtocolSetDelegate(3, ProtocolSetDelegate.Pad.ALPHA)
-    private var dllVersion: String by ProtocolSetDelegate(8, ProtocolSetDelegate.Pad.ALPHA)
-    private var cancelTransaction: String by ProtocolSetDelegate(1, ProtocolSetDelegate.Pad.ALPHA)
-    private var filler: String by ProtocolSetDelegate(5, ProtocolSetDelegate.Pad.ALPHA)
+    private var specVersion: String by ProtocolSetDelegate(3, ALPHA)
+    private var dllVersion: String by ProtocolSetDelegate(8, ALPHA)
+    private var cancelTransaction: String by ProtocolSetDelegate(1, ALPHA)
+    private var filler: String by ProtocolSetDelegate(5, ALPHA)
     private var header: NicePaymentHeader
     private var body: NicePaymentBaseBody
     private var etx: Byte = 0x03
 
-    init {
+    constructor(
+        merchant: String,
+        amount: Number,
+        tax: Number,
+        tip: Number,
+        payMethod: PaymentMethod,
+        barcodeType: BarcodeType,
+        barcode: String
+    ) {
         specVersion = "PFC"
         dllVersion = "1.01.001"
-        header = NicePaymentHeader(merchant, payMethod, ProtocolState.AUTHORIZATION)
         body = setBody(payMethod).apply {
             amount(amount)
-            refresh()
+            tax(tax)
+            tip(tip)
+            orderNumber()
             barcode(barcode)
             barcodeType(barcodeType)
+        }
+        header = NicePaymentHeader().apply {
+            jobCode(body.codeOfAuthorization)
+            merchant(merchant)
         }
     }
 
@@ -42,11 +48,17 @@ class ProtocolDataBuilder(
     }
 
     fun setState(newState: ProtocolState): ProtocolDataBuilder {
-        this.header = NicePaymentHeader(merchant, payMethod, newState)
+        val code = when(newState) {
+            ProtocolState.AUTHORIZATION -> body.codeOfAuthorization
+            ProtocolState.INQUIRY -> body.codeOfInquiry
+            ProtocolState.CANCEL -> body.condOfCancel
+            ProtocolState.NET_CANCEL -> body.codeOfNetCancel
+        }
+        header.jobCode(code)
         return this
     }
 
-    fun parseResponse(response: ByteArray): NicePaymentArgument {
+    fun parseResponse(response: ByteArray): NicePaymentsResult {
         return body.parseResponse(response)
     }
 
@@ -59,8 +71,8 @@ class ProtocolDataBuilder(
         val dllVersionArray = dllVersion.toByteArray(Charsets.UTF_8)
         val cancelTransactionArray = cancelTransaction.toByteArray(Charsets.UTF_8)
         val fillerArray = filler.toByteArray(Charsets.UTF_8)
-        val headerArray = header?.toString()?.toByteArray(Charsets.UTF_8) ?: ByteArray(0)
-        val bodyArray = body?.toString()?.toByteArray(Charsets.UTF_8) ?: ByteArray(0)
+        val headerArray = header.toString().toByteArray(Charsets.UTF_8)
+        val bodyArray = body.toString().toByteArray(Charsets.UTF_8)
         val etxArray = byteArrayOf(etx)
 
         val combinedArray = identityArray + specVersionArray + dllVersionArray +
