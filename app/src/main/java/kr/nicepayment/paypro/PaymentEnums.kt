@@ -1,6 +1,8 @@
 package kr.nicepayment.paypro
 
-enum class PaymentMethod {
+import com.google.zxing.client.android.BuildConfig
+
+enum class PaymentMethod  {
     PAYPRO,
     LINK,
     OTHER
@@ -22,4 +24,18 @@ enum class ProtocolState {
     INQUIRY,
     CANCEL,
     NET_CANCEL
+}
+
+enum class Result {
+    SUCCESS,
+    FAIL,
+    NETWORK_ERROR,
+    DATA_ERROR,
+    PROCESSING,
+    TIMEOUT
+}
+
+enum class Environment {
+    DEVELOP,
+    PRODUCTION
 }

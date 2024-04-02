@@ -1,11 +1,16 @@
 package kr.nicepayment.paypro
 
-import kotlin.math.roundToInt
+import kotlinx.coroutines.flow.StateFlow
 
 
-class CheckOut(val merchant: Merchant, private val cart: Cart, val paymentMethod: PaymentMethod) {
+class CheckOut(val merchant: Merchant, private val cart: Cart, val paymentMethod: PaymentMethod,) {
     var barcode: String = ""
     var barcodeType: BarcodeType = BarcodeType.BARCODE
+
+    fun barcode ( code: String, type: BarcodeType) {
+        barcode = code
+        barcodeType = type
+    }
 
     val tax: Int
         get() = (cart.totalPrice * (merchant.taxRate / 100)).toInt()
@@ -26,6 +31,6 @@ data class Cart(val order: Order, val tip: Int? =0) {
 
 data class Order( val items: List<Item> )
 
-data class Item( val name: String? =null, val price: Double, var quantity: Int) {
+data class Item(val name: String? =null, val price: Double, var quantity: Int) {
     fun add() = quantity++
 }

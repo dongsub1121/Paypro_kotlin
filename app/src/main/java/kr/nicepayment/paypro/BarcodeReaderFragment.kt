@@ -1,6 +1,7 @@
 package kr.nicepayment.paypro
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,21 +31,25 @@ class BarcodeReaderFragment : Fragment() {
 
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         barcodeView = binding.barcodeView
         barcodeView.decodeSingle { result ->
 
-            val BARCODEType = if (result.barcodeFormat.equals("QR_CODE")) {
+            val barcode = result.text
+            val barcodeType = if (result.barcodeFormat.equals("QR_CODE")) {
                 BarcodeType.QR
             }else {
                 BarcodeType.BARCODE
             }
-            viewModel.setBarcode(result.text, BARCODEType)
+
+            if (barcode.isNotEmpty()) {
+                viewModel.setBarcode(barcode, barcodeType)
+            }
         }
     }
-
 
     override fun onResume() {
         super.onResume()

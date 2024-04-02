@@ -18,12 +18,22 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
+            //buildConfigField("String", "ENVIRONMENT", "\"DEVELOP\"")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        release {
+            //buildConfigField("String", "ENVIRONMENT", "\"PRODUCTION\"")
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+
         }
     }
     compileOptions {
@@ -36,6 +46,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        //buildConfig = true
     }
 }
 
@@ -43,7 +54,8 @@ dependencies {
 
     //zxing
     implementation("com.journeyapps:zxing-android-embedded:4.1.0")
-
+    //Lottie
+    implementation ("com.airbnb.android:lottie:3.4.0")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
