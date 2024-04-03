@@ -54,6 +54,7 @@ class PaymentViewModel : ViewModel() {
     }
 
     fun setAmount(amount: Double) {
+        Log.e("viewModel",amount.toString())
         _amount.value = amount
     }
 
@@ -62,6 +63,7 @@ class PaymentViewModel : ViewModel() {
     }
 
     fun setBarcode(code : String , type: BarcodeType) {
+        Log.e("viewModel_setBarcode",code)
         _barcode.value = code
         _barcodeType.value = type
     }

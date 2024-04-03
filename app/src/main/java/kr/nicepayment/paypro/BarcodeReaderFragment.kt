@@ -39,6 +39,7 @@ class BarcodeReaderFragment : Fragment() {
         barcodeView.decodeSingle { result ->
 
             val barcode = result.text
+            Log.e("barcode", barcode)
             val barcodeType = if (result.barcodeFormat.equals("QR_CODE")) {
                 BarcodeType.QR
             }else {
