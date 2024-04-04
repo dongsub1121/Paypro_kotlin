@@ -56,6 +56,7 @@ dependencies {
     implementation("com.journeyapps:zxing-android-embedded:4.1.0")
     //Lottie
     implementation ("com.airbnb.android:lottie:3.4.0")
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")

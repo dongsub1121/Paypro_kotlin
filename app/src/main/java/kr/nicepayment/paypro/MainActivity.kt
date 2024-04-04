@@ -17,14 +17,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bt1.setOnClickListener {
-            val intent = Intent(this, PaymentPayProActivity::class.java)
-            startActivity(intent)
-/*            // 프래그먼트 전환 시작
+/*            val intent = Intent(this, PaymentPayProActivity::class.java)  // 여기로 결제
+            startActivity(intent)*/
+
+            // 프래그먼트 전환 시작
             val fragmentManager = supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
 
             // MyFragment 인스턴스 생성
-            val myFragment = SampleFragment()
+            val myFragment = ChartFragment()
 
             // 컨테이너에 프래그먼트 추가, 교체 또는 제거
             fragmentTransaction.replace(R.id.container, myFragment)
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             // fragmentTransaction.addToBackStack(null)
 
             // 변경사항 적용
-            fragmentTransaction.commit()*/
+            fragmentTransaction.commit()
         }
     }
 }
