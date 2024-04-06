@@ -57,7 +57,9 @@ dependencies {
     //Lottie
     implementation ("com.airbnb.android:lottie:3.4.0")
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation ("androidx.fragment:fragment-ktx:1.6.2")
+    implementation("androidx.core:core-ktx:1.12.0")
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

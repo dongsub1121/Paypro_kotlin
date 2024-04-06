@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    tools:context=".PaymentFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_blank_fragment"
+        android:lineSpacingMultiplier="@integer/material_motion_duration_long_1"
+        android:textSize="100sp"
+        android:maxLines="4"
+        android:scrollHorizontally="false"
+        android:ellipsize="end"/>
+
+</FrameLayout>

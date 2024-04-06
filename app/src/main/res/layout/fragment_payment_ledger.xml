@@ -3,15 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChartFragment">
+    tools:context=".ui.PaymentLedgerFragment">
 
-    <kr.nicepayment.paypro.ui.BarChartView
-        android:id="@+id/barChartView"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="20dp">
-
-    </kr.nicepayment.paypro.ui.BarChartView>
-
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

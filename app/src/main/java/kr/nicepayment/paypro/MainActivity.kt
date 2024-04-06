@@ -1,10 +1,12 @@
 package kr.nicepayment.paypro
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commit
 import kr.nicepayment.paypro.databinding.ActivityMainBinding
+import kr.nicepayment.paypro.ui.PaymentLedgerFragment
+import kr.nicepayment.paypro.ui.PaymentMethodFragment
+import kr.nicepayment.paypro.ui.SalesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,25 +18,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bt1.setOnClickListener {
-/*            val intent = Intent(this, PaymentPayProActivity::class.java)  // 여기로 결제
-            startActivity(intent)*/
+        if (savedInstanceState == null) { // 화면 회전 등으로 인한 재생성을 방지
+            supportFragmentManager.commit {
 
-            // 프래그먼트 전환 시작
-            val fragmentManager = supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-
-            // MyFragment 인스턴스 생성
-            val myFragment = ChartFragment()
-
-            // 컨테이너에 프래그먼트 추가, 교체 또는 제거
-            fragmentTransaction.replace(R.id.container, myFragment)
-
-            // 트랜잭션을 백 스택에 추가(선택적)
-            // fragmentTransaction.addToBackStack(null)
-
-            // 변경사항 적용
-            fragmentTransaction.commit()
+                add(R.id.sales_container, SalesFragment())
+                add(R.id.pay_method_container, PaymentMethodFragment())
+                add(R.id.pay_ledger_container, PaymentLedgerFragment())
+            }
         }
     }
 }

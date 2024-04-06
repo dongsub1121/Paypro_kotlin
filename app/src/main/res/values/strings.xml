@@ -3,6 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="amount_msg">결제 금액을 입력하세요</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="method_link_pro">LINK PRO</string>
+    <string name="method_link_pro_description">외국인에게 결제 요청</string>
+    <string name="method_paypro">PAYPRO</string>
+    <string name="method_paypro_description">외국인 QR 간편결제</string>
 </resources>
