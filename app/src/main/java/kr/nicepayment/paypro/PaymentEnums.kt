@@ -5,6 +5,10 @@ import com.google.zxing.client.android.BuildConfig
 enum class PaymentMethod  {
     PAYPRO,
     LINK,
+    ALIPAY,
+    WECHAT,
+    LINE,
+    LIQUID,
     OTHER
 }
 enum class BarcodeType {

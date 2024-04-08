@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.commit
 import kr.nicepayment.paypro.databinding.ActivityMainBinding
-import kr.nicepayment.paypro.ui.PaymentLedgerFragment
+import kr.nicepayment.paypro.ui.PaymentHistoryFragment
 import kr.nicepayment.paypro.ui.PaymentMethodFragment
 import kr.nicepayment.paypro.ui.SalesFragment
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
                 add(R.id.sales_container, SalesFragment())
                 add(R.id.pay_method_container, PaymentMethodFragment())
-                add(R.id.pay_ledger_container, PaymentLedgerFragment())
+                add(R.id.pay_ledger_container, PaymentHistoryFragment())
             }
         }
     }

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_margin="10dp" >
+
+    <LinearLayout
+        android:id="@+id/layoutStatus"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageViewStatus"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/linkpro_proto" />
+
+        <TextView
+            android:id="@+id/textViewStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageViewStatus"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="완료"
+            android:textAppearance="?attr/textAppearanceListItem" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/layoutStatus"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true">
+
+        <RelativeLayout
+            android:id="@+id/firstPrams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:id="@+id/textViewServiceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="PayPro"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:id="@+id/textViewTransactionDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="2022년 12월 01일 1시 43분 21초"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/secondPrams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewAuthNumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="승인번호 : "
+                android:textAppearance="?attr/textAppearanceListItemSmall" />
+
+            <TextView
+                android:id="@+id/textViewAccountNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/textViewAuthNumText"
+                android:text="1234 5678"
+                android:textAppearance="?attr/textAppearanceListItemSmall" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/thirdPrams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewTransactionAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="90,000원"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <ImageView
+                android:id="@+id/imageViewPaymentMethod"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_toStartOf="@id/textViewTransactionAmount"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/alipay" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
