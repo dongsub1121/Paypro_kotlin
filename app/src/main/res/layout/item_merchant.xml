@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 상단 섹션 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@android:color/darker_gray">
+                <!-- 상단 섹션 내용을 여기에 추가하면 됩니다. 예를 들어 이미지나 추가 텍스트 등 -->
+
+            </RelativeLayout>
+
+            <!-- 하단 섹션 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvMerchantName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Merchant Name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    tools:text="Merchant Name" />
+
+                <TextView
+                    android:id="@+id/tvMerchantBusinessNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Business No"
+                    android:textSize="10sp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    tools:text="123456789" />
+
+                <TextView
+                    android:id="@+id/tvMerchantNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="Merchant No"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    tools:text="987654321" />
+
+                <TextView
+                    android:id="@+id/tvMerchantAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    tools:text="1234 Main St" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

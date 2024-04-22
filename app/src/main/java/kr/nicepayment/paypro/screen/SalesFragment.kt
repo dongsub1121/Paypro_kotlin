@@ -1,4 +1,7 @@
-package kr.nicepayment.paypro.ui
+package kr.nicepayment.paypro.screen
+
+import kr.nicepayment.paypro.screen.view.BarChartView
+import kr.nicepayment.paypro.screen.view.BarData
 
 class SalesFragment: AbstractContentFragment() {
     override fun setupFragment() {

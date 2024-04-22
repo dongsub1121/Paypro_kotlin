@@ -1,4 +1,4 @@
-package kr.nicepayment.paypro.ui
+package kr.nicepayment.paypro.screen
 
 import android.content.Context
 import android.os.Bundle

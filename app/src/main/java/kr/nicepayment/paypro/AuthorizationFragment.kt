@@ -37,6 +37,16 @@ class AuthorizationFragment : Fragment() {
                 }
             }
         }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.paymentResult.collect {
+
+                if(it.length > 1) {
+                    lottieAnimationView.pauseAnimation()
+                }
+
+            }
+        }
         return view
     }
 

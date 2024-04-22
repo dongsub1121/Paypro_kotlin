@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
@@ -25,7 +25,7 @@ class PaymentViewModel : ViewModel() {
     private val _payMethod = MutableStateFlow(PaymentMethod.PAYPRO)
     val payMethod = _payMethod.asStateFlow()
 
-    private val _processing = MutableStateFlow(false)
+    private val _processing = MutableStateFlow(true)
     val processing = _processing.asStateFlow()
 
     private val _authorizationRequired = MutableStateFlow(false)
@@ -36,8 +36,8 @@ class PaymentViewModel : ViewModel() {
     val paymentResult: LiveData<NicePaymentsResult> = _paymentResult
 */
 
-    private val _paymentResult = MutableLiveData<String>()
-    val paymentResult: LiveData<String> = _paymentResult
+    private val _paymentResult = MutableStateFlow("")
+    val paymentResult = _paymentResult.asStateFlow()
 
     init {
         observePaymentConditions()
@@ -63,7 +63,6 @@ class PaymentViewModel : ViewModel() {
     }
 
     fun setBarcode(code : String , type: BarcodeType) {
-        Log.e("viewModel_setBarcode",code)
         _barcode.value = code
         _barcodeType.value = type
     }
@@ -72,8 +71,12 @@ class PaymentViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 //val result = NicePaymentsProtocolService().initialRequest(createCheckOut())
-                val result = NicePaymentsProtocolService2().requestPayment(createCheckOut())
-                //_paymentResult.value = result
+                //val result = NicePaymentsProtocolService2().requestPayment(createCheckOut())
+                delay(5000) // 5초 대기
+                _processing.value = false
+                _paymentResult.value = "rr"
+                Log.e("delay","${_paymentResult.value}")
+
             } catch (e: Exception) {
                 e.printStackTrace()
             } /*catch (e: NetworkConnectionException) {

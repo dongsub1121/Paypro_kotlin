@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_sales_report"
+        android:icon="@drawable/sales_report"
+        android:title="@string/title_sales_report" />
+
+    <item
+        android:id="@+id/navigation_pay"
+        android:icon="@drawable/sales_pay"
+        android:title="@string/title_pay" />
+
+    <item
+        android:id="@+id/navigation_sales_record"
+        android:icon="@drawable/sales_record"
+        android:title="@string/title_sales_record" />
+
+</menu>

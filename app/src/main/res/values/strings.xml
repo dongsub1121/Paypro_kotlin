@@ -5,6 +5,26 @@
     <string name="amount_msg">결제 금액을 입력하세요</string>
     <string name="method_link_pro">LINK PRO</string>
     <string name="method_link_pro_description">외국인에게 결제 요청</string>
-    <string name="method_paypro">PAYPRO</string>
+    <string name="method_paypro">PAY PRO</string>
     <string name="method_paypro_description">외국인 QR 간편결제</string>
+    <string name="title_activity_master">MasterActivity</string>
+    <string name="title_pay">결제</string>
+    <string name="title_sales_report">매출</string>
+    <string name="title_sales_record">판매</string>
+    <string name="payment_amount_input_command">결제을 입력해 주세요</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="sales_spinner_prompt">가맹점을 선택해 주세요</string>
 </resources>

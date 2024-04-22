@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".ChartFragment">
 
-    <kr.nicepayment.paypro.ui.BarChartView
+    <kr.nicepayment.paypro.screen.view.BarChartView
         android:id="@+id/barChartView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp">
 
-    </kr.nicepayment.paypro.ui.BarChartView>
+    </kr.nicepayment.paypro.screen.view.BarChartView>
 
 
 </FrameLayout>

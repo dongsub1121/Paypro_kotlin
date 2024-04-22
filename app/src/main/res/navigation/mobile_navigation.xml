@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_pay">
+
+    <fragment
+        android:id="@+id/navigation_sales_report"
+        android:name="kr.nicepayment.paypro.screen.report.SalesReportFragment"
+        android:label="@string/title_sales_report"
+        tools:layout="@layout/fragment_sales_report" />
+
+    <fragment
+        android:id="@+id/navigation_pay"
+        android:name="kr.nicepayment.paypro.screen.payments.SalesFragment"
+        android:label="@string/title_pay"
+        tools:layout="@layout/fragment_pay" >
+        <action
+            android:id="@+id/action_navigation_pay_to_navigation_sales_report"
+            app:destination="@id/navigation_sales_report" />
+        <action
+            android:id="@+id/action_navigation_pay_to_navigation_sales_record"
+            app:destination="@id/navigation_sales_record" />
+        <action
+            android:id="@+id/action_navigation_pay_to_merchantFragment"
+            app:destination="@id/navigation_merchant" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_sales_record"
+        android:name="kr.nicepayment.paypro.screen.record.SalesRecordFragment"
+        android:label="@string/title_sales_record"
+        tools:layout="@layout/fragment_sales_record" />
+
+    <fragment
+        android:id="@+id/navigation_merchant"
+        android:name="kr.nicepayment.paypro.screen.merchant.MerchantFragment"
+        android:label="Merchant"
+        tools:layout="@layout/fragment_merchant"/>
+</navigation>

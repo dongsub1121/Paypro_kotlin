@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id ("kotlin-kapt") // KAPT 플러그인 추가
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -46,16 +48,42 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
         //buildConfig = true
     }
+
 }
 
 dependencies {
 
+    implementation ("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
+    implementation("androidx.annotation:annotation:1.7.1")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.preference:preference:1.2.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    val roomVersion = "2.6.1"
+    implementation ("androidx.room:room-runtime:$roomVersion")
+    kapt ("androidx.room:room-compiler:$roomVersion")
+
+    // Room KTX
+    implementation ("androidx.room:room-ktx:$roomVersion")
+
+    //Gson
+    implementation("com.google.code.gson:gson:2.9.0")
+
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
     //zxing
     implementation("com.journeyapps:zxing-android-embedded:4.1.0")
+
     //Lottie
     implementation ("com.airbnb.android:lottie:3.4.0")
+
+    //MPAndroidChart
+    implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
     implementation ("androidx.fragment:fragment-ktx:1.6.2")
     implementation("androidx.core:core-ktx:1.12.0")

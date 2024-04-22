@@ -7,11 +7,10 @@ data class NicePaymentsResult(
 ) {
     val barcode: String = ""
     val barcodeType: BarcodeType = BarcodeType.BARCODE
-    var pay = ""
     var orderNumber = ""
-    var authDate = ""
-    var authNum = ""
-    var authOrderNumber = ""
+    var authorizationDate = ""
+    var authorizationNumber = ""
+    var authorizationOrderNumber = ""
     var amount: Double = 0.0
     var taxRate: Double = 0.0
     var merchant= ""

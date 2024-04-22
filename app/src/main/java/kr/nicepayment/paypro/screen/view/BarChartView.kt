@@ -1,4 +1,4 @@
-package kr.nicepayment.paypro.ui
+package kr.nicepayment.paypro.screen.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -9,7 +9,6 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import java.text.DecimalFormat
-import kotlin.math.max
 
 class BarChartView(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
     // 막대 데이터 목록을 저장합니다.

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.payments.SalesFragment">
+
+    <FrameLayout
+        android:id="@+id/containerSales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/alipay" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/alipay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/containerMethod"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:scaleType="fitCenter"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/alipay" /> <!-- 이미지 리소스를 지정하세요 -->
+
+    </androidx.cardview.widget.CardView>
+    <FrameLayout
+        android:id="@+id/containerMethod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

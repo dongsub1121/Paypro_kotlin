@@ -1,13 +1,11 @@
-package kr.nicepayment.paypro.ui
+package kr.nicepayment.paypro.screen
 
-import android.widget.ExpandableListView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kr.nicepayment.paypro.NicePaymentsResult
 import kr.nicepayment.paypro.PaymentHistoryAdapter
 import kr.nicepayment.paypro.PaymentMethod
 import kr.nicepayment.paypro.PaymentStatus
-import kr.nicepayment.paypro.R
 import kr.nicepayment.paypro.Result
 
 class PaymentHistoryFragment : AbstractContentFragment() {
@@ -25,28 +23,27 @@ class PaymentHistoryFragment : AbstractContentFragment() {
         }
 
         var nicePaymentsResult1 = NicePaymentsResult(Result.SUCCESS,"0000","23").apply {
-            authNum = "0090 8487"
+            authorizationNumber = "0090 8487"
             amount = 90000.0
-            authDate = "2024년 04월 9일 21시34분19초"
+            authorizationDate = "2024년 04월 9일 21시34분19초"
             status = PaymentStatus.AUTHORIZATION
             method = PaymentMethod.ALIPAY
-            pay = "알리페이"
+
         }
         var nicePaymentsResult2 = NicePaymentsResult(Result.FAIL,"0000","23").apply {
-            authNum = ""
+            authorizationNumber = ""
             amount = 70000.0
-            authDate = "19시간 34분 20초 남음"
+            authorizationDate = "19시간 34분 20초 남음"
             status = PaymentStatus.READY
-            pay = "링크프로"
+            method = PaymentMethod.LINK
 
         }
         var nicePaymentsResult3 = NicePaymentsResult(Result.FAIL,"0000","23").apply {
-            authNum = "7756 8901"
+            authorizationNumber = "7756 8901"
             amount = 30000.0
-            authDate = "19시간 34분 20초 남음"
+            authorizationDate = "19시간 34분 20초 남음"
             status = PaymentStatus.REFUNDED
             method = PaymentMethod.LINE
-            pay = "라인페이"
 
         }
 
@@ -59,16 +56,16 @@ class PaymentHistoryFragment : AbstractContentFragment() {
 
     private fun loadData() {
         var nicePaymentsResult1 = NicePaymentsResult(Result.SUCCESS,"0000","23").apply {
-            authNum = "0090 8487"
+            authorizationNumber = "0090 8487"
             amount = 90000.0
-            authDate = "2024년 04월 9일 21시34분19초"
+            authorizationDate = "2024년 04월 9일 21시34분19초"
             status = PaymentStatus.READY
             method = PaymentMethod.ALIPAY
         }
         var nicePaymentsResult2 = NicePaymentsResult(Result.FAIL,"0000","23").apply {
-            authNum = "0090 8487"
+            authorizationNumber = "0090 8487"
             amount = 90000.0
-            authDate = "2024년 04월 9일 21시34분19초"
+            authorizationDate = "2024년 04월 9일 21시34분19초"
             status = PaymentStatus.AUTHORIZATION
             method = PaymentMethod.ALIPAY
         }

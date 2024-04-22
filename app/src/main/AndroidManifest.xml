@@ -15,14 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paypro"
         tools:targetApi="31">
+
         <activity
-            android:name=".PaymentPayProActivity"
+            android:name=".screen.PaymentPayProActivity"
             android:exported="false" />
         <activity
             android:name=".PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".screen.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

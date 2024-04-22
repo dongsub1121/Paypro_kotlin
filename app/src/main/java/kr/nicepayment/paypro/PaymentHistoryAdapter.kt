@@ -5,11 +5,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import org.w3c.dom.Text
 import java.text.NumberFormat
 import java.util.Locale
 
@@ -30,9 +28,9 @@ class PaymentHistoryAdapter(private val context: Context) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.apply {
-            textViewServiceName.text = item.pay
-            textViewTransactionDate.text = item.authDate
-            textViewAccountNumber.text = item.authNum
+            textViewServiceName.text = item.method!!.name
+            textViewTransactionDate.text = item.authorizationDate
+            textViewAccountNumber.text = item.authorizationNumber
             textViewTransactionAmount.text = "${NumberFormat.getNumberInstance(Locale.KOREA).format(item.amount)}원"
             textViewStatus.text = getStatusText(item.status)
             imageViewStatus.setImageResource(getStatusDrawable(item.status))

@@ -55,14 +55,21 @@ class PaymentActivity : AppCompatActivity() {
 
         lifecycleScope.launchWhenStarted {
             viewModel.processing.collect {
-                if (it) {
+                if (!it) {
                     viewPager.currentItem = 3
                 }
             }
         }
-        viewModel.paymentResult.observe(this, Observer { result ->
-            viewPager.currentItem = 4
-        })
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.paymentResult.collect {
+
+                if(it.length > 1) {
+                    viewPager.currentItem = 3
+                }
+
+            }
+        }
 
     }
 

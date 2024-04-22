@@ -1,6 +1,5 @@
 package kr.nicepayment.paypro
 
-import android.util.Log
 import kr.nicepayment.paypro.PaymentMethod.*
 import kr.nicepayment.paypro.ProtocolSetDelegate.Pad.*
 import kr.nicepayment.paypro.ProtocolState.*
@@ -129,11 +128,12 @@ class NicePaymentsPayProBody: NicePaymentBaseBody() {
         val orderNumber = response.sliceArray(point + 136 until point + 148).toString(Charsets.UTF_8)
 
         val pay = when (response.sliceArray(point + 148 until point + 151).toString(Charsets.UTF_8)) {
-            "WXP" -> "WeChat"
-            "ALP" ->   "Alipay"
-            "LIQ" -> "Liquid"
+            "WXP" -> PaymentMethod.WECHAT
+            "ALP" ->   PaymentMethod.ALIPAY
+            "LIQ" -> PaymentMethod.LIQUID
+            "LIN" -> PaymentMethod.LINE
 
-            else -> ({}).toString()
+            else -> PAYPRO
         }
 
         //val barcodeType = array.sliceArray(point + 151 until point + 152).toString(Charsets.UTF_8)
@@ -147,15 +147,14 @@ class NicePaymentsPayProBody: NicePaymentBaseBody() {
                 "UPAY" -> Result.PROCESSING
                 else  -> Result.FAIL }, resCode = resCode
             ).apply {
-                this.pay = pay
                 this.orderNumber = orderNumber
 
-                this.authDate = authDate
-                this.authNum = authNum
-                this.authOrderNumber = authOrderNumber
+                this.authorizationDate = authDate
+                this.authorizationNumber = authNum
+                this.authorizationOrderNumber = authOrderNumber
                 this.amount = amount
                 this.state = if (resCode == "UPAY") INQUIRY else AUTHORIZATION
-                this.method = PAYPRO }
+                this.method = pay }
     }
 
     override fun parseInquiryResponse(response: ByteArray): NicePaymentsResult {
@@ -169,11 +168,12 @@ class NicePaymentsPayProBody: NicePaymentBaseBody() {
         val orderNumber = response.sliceArray(point + 136 until point + 148).toString(Charsets.UTF_8)
 
         val pay = when (response.sliceArray(point + 148 until point + 151).toString(Charsets.UTF_8)) {
-            "WXP" -> "WeChat"
-            "ALP" ->   "Alipay"
-            "LIQ" -> "Liquid"
+            "WXP" -> PaymentMethod.WECHAT
+            "ALP" ->   PaymentMethod.ALIPAY
+            "LIQ" -> PaymentMethod.LIQUID
+            "LIN" -> PaymentMethod.LINE
 
-            else -> ({}).toString()
+            else -> PAYPRO
         }
 
         //val barcodeType = array.sliceArray(point + 151 until point + 152).toString(Charsets.UTF_8)
@@ -187,14 +187,13 @@ class NicePaymentsPayProBody: NicePaymentBaseBody() {
                 "UPAY" -> Result.PROCESSING
                 else  -> Result.FAIL }, resCode = resCode
             ).apply {
-                this.pay = pay
                 this.orderNumber = orderNumber
-                this.authDate = authDate
-                this.authNum = authNum
-                this.authOrderNumber = authOrderNumber
+                this.authorizationDate = authDate
+                this.authorizationNumber = authNum
+                this.authorizationOrderNumber = authOrderNumber
                 this.amount = amount
                 this.state = if (resCode == "UPAY") INQUIRY else AUTHORIZATION
-                this.method = PAYPRO
+                this.method = pay
             }
     }
 

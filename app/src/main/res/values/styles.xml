@@ -10,4 +10,9 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="SalesSpinner" parent="">
+        <item name="android:textColor">@color/maps_fink</item>
+        <item name="android:background">@color/maps_1</item>
+    </style>
+
 </resources>

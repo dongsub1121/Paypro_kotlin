@@ -68,8 +68,8 @@ class PacketBuilder {
             tax(nicePaymentsResult.tax)
             tip(nicePaymentsResult.tip)
             orderNumber(nicePaymentsResult.orderNumber)
-            authorizationDate(nicePaymentsResult.authDate)
-            authorizationNumber(nicePaymentsResult.authOrderNumber)
+            authorizationDate(nicePaymentsResult.authorizationDate)
+            authorizationNumber(nicePaymentsResult.authorizationOrderNumber)
             barcode(nicePaymentsResult.barcode)
             barcodeType(nicePaymentsResult.barcodeType)
         }

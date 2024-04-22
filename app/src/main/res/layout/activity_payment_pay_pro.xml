@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PaymentPayProActivity">
+    tools:context=".screen.PaymentPayProActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -32,16 +32,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:text="How Much?\n결제을 입력해 주세요"
+            android:text="@string/payment_amount_input_command"
             android:gravity="left"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            tools:ignore="RtlHardcoded" />
 
         <TextView
             android:id="@+id/textViewStream"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="right"
             android:textSize="24sp"
-            android:layout_margin="16dp"/>
+            android:layout_margin="16dp"
+            tools:ignore="RtlHardcoded" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutAmount"
@@ -53,8 +56,10 @@
                 android:id="@+id/editTextAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="right"
                 android:imeOptions="actionDone"
-                android:inputType="number"/>
+                android:inputType="number"
+                tools:ignore="RtlHardcoded" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.fragment.app.FragmentContainerView

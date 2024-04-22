@@ -6,13 +6,17 @@
     android:orientation="horizontal"
     android:layout_marginTop="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.PaymentMethodFragment">
+    tools:context=".screen.PaymentMethodFragment">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewPayPro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_margin="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         app:cardElevation="5dp"
         app:cardCornerRadius="10dp">
         <RelativeLayout
@@ -53,9 +57,13 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewLink"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
         app:cardElevation="5dp"
         android:layout_margin="10dp"
         app:cardCornerRadius="10dp">
