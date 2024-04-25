@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import com.journeyapps.barcodescanner.DecoratedBarcodeView
 import kr.nicepayment.paypro.BarcodeType
 import kr.nicepayment.paypro.PaymentViewModel
@@ -93,8 +94,16 @@ class BarcodeReaderFragment : Fragment() {
                 BarcodeType.BARCODE
             }
 
-            if (barcode.isNotEmpty()) {
+            // 현재 사용 중인 Alipay+ 결제 코드 (24자리)
+            val regexCurrent = "^[0-9]{24}$"
+            // Alipay+ 레거시 결제 코드
+            val regexLegacy = "^(28[0-9]{15}|28[0-9]{16}|28[0-8][0-9]{16}|289[0-9]{10}[0-57-9][0-9]{5}|289[0-9]{10}6[0-9]{5})$"
+
+            // 두 정규식 중 하나에 매치되는 경우
+            if (barcode.isNotEmpty() && (barcode.matches(regexCurrent.toRegex()) || barcode.matches(regexLegacy.toRegex()))) {
                 viewModel.setBarcode(barcode, barcodeType)
+            } else {
+                Snackbar.make(binding.root, "Invalid Alipay+ Payment Code", Snackbar.LENGTH_LONG).show()
             }
         }
     }
