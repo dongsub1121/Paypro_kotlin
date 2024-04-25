@@ -1,7 +1,8 @@
 package kr.nicepayment.paypro
 
 import android.util.Log
-import kr.nicepayment.paypro.ProtocolSetDelegate.Pad.*
+import kr.nicepayment.paypro.screen.utils.ProtocolSetDelegate
+import kr.nicepayment.paypro.screen.utils.ProtocolSetDelegate.Pad.*
 
 
 class PacketBuilder {

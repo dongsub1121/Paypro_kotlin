@@ -1,8 +1,9 @@
 package kr.nicepayment.paypro
 
 import kr.nicepayment.paypro.PaymentMethod.*
-import kr.nicepayment.paypro.ProtocolSetDelegate.Pad.*
+import kr.nicepayment.paypro.screen.utils.ProtocolSetDelegate.Pad.*
 import kr.nicepayment.paypro.ProtocolState.*
+import kr.nicepayment.paypro.screen.utils.ProtocolSetDelegate
 
 
 class NicePaymentsPayProBody: NicePaymentBaseBody() {

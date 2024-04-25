@@ -1,4 +1,4 @@
-package kr.nicepayment.paypro
+package kr.nicepayment.paypro.screen.utils
 
 import kotlin.reflect.KProperty
 

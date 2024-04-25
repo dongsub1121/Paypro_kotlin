@@ -1,10 +1,11 @@
 package kr.nicepayment.paypro
 
-import kr.nicepayment.paypro.ProtocolSetDelegate.Pad.*
+import kr.nicepayment.paypro.screen.utils.ProtocolSetDelegate
+import kr.nicepayment.paypro.screen.utils.ProtocolSetDelegate.Pad.*
 
 class NicePaymentHeader{
-        private var jobCode: String by ProtocolSetDelegate(4, ProtocolSetDelegate.Pad.ALPHA)
-        private var tid: String by ProtocolSetDelegate(10, ProtocolSetDelegate.Pad.ALPHA)
+        private var jobCode: String by ProtocolSetDelegate(4, ALPHA)
+        private var tid: String by ProtocolSetDelegate(10, ALPHA)
         private var protocolVersion: String by ProtocolSetDelegate(12, ALPHA)
         private var swVersion: String by ProtocolSetDelegate(10, ALPHA, "1000100001")
         private var hwUniqueId: String by ProtocolSetDelegate(10, ALPHA, "mpas1001")

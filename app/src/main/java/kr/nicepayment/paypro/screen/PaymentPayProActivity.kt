@@ -20,11 +20,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import kr.nicepayment.paypro.AuthorizationFragment
-import kr.nicepayment.paypro.BarcodeReaderFragment
 import kr.nicepayment.paypro.PaymentViewModel
 import kr.nicepayment.paypro.R
-import kr.nicepayment.paypro.ResultFragment
 import kr.nicepayment.paypro.databinding.ActivityPaymentPayProBinding
 import java.text.NumberFormat
 import java.util.Locale

@@ -3,22 +3,15 @@ package kr.nicepayment.paypro
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
-import android.widget.TextView
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.appbar.AppBarLayout
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import kr.nicepayment.paypro.databinding.FragmentSampleBinding
+import kr.nicepayment.paypro.screen.BarcodeReaderFragment
 import java.text.NumberFormat
 import java.util.Locale
 
